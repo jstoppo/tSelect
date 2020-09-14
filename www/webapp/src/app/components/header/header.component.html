@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg navbar-warning bg-warning " >
+    <a class="navbar-brand text-dark" href="#" >t<span class="text-danger">S</span>elect </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="dashboard">Dashboard <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Analytics <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Custom Charting <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Machine Trading <span class="sr-only">(current)</span></a>
+        </li>
+        <!-- <li class="nav-item active" *ngIf="!authService.userData">
+          <a class="nav-link" href="/sign-in" >Login<span class="sr-only">(current)</span></a>
+        </li> -->
+
+        <li class="nav-item active" *ngIf="authService.userData">
+          <!-- <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a> -->
+        </li>
+        
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        
+        <!-- <input class="form-control mr-sm-2" type="search" placeholder="Closing restaurants" aria-label="Search"> -->
+        <!-- <button class="btn btn-outline-light my-2 my-sm-0" href="/list"  type="submit">List your restaurants</button> -->
+        
+        <a *ngIf="authService.userData" class="nav-link btn-dark" href="#" >Traders Arena<span class="sr-only">(current)</span></a>
+          
+        <a *ngIf="!authService.userData" class="nav-link" href="/sign-in" >Login<span class="sr-only">(current)</span></a>
+          
+
+        
+        <button class="btn btn-clear my-2 my-sm-0" color="warning" type="submit" *ngIf="authService.userData" (click)="authService.SignOut()" >Logout</button>
+        <span class="" >{{authService.userData.displayName}}</span> 
+        
+        <!-- <img  class="img-circle" style="width:10%" src="{{authService.userData.photoURL}}"> -->
+
+        <button class="btn btn-clear my-2 my-sm-0"   *ngIf="authService.userData" >
+        <svg class="bi bi-justify" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+        </button>
+        
+      </form>
+    </div>
+  </nav>
+
+
+
+  
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li> -->

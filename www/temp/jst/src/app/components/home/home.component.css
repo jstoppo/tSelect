@@ -1,0 +1,14 @@
+.card-css {
+    display: block;
+    width: 314px;
+    cursor: pointer;
+    padding: 25px 0px 20px;
+    border-width: 4px 1px 1px;
+    border-style: solid;
+    border-color: rgb(94, 35, 220) rgb(230, 230, 230) rgb(230, 230, 230);
+    border-image: initial;
+    border-top: 4px solid rgb(255, 193, 7);
+    border-radius: 4px;
+    transition: all 0.5s ease 0s;
+    margin: 0px 41px 12px 0px;
+}

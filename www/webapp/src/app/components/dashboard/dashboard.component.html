@@ -1,0 +1,225 @@
+<!-- Top navigation -->
+<!-- <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0">
+      <h5>Angular 9 Firebase Auth</h5>
+    </a>
+  </nav> -->
+  
+  <!-- Sidebar navigation -->
+
+ 
+  <app-header></app-header>  
+  <br>
+<div class="container-fluid ">
+  <div class="row bg-light">
+    
+    <div class="col-md-2 ">
+      <div class="bg-dark text-center"> <h4 class="text-warning">Dashboard</h4> <hr> </div>  
+      
+      <div class="card">
+        
+      <!-- <div class="row"> -->
+        <button type="button" class="btn btn-block btn-outline-secondary" (click)="get_n50_bc()">Nifty 50 bhavcopy</button>
+      <!-- </div> -->
+
+      <!-- <div class="row"> -->
+        <button type="button" class="btn btn-block btn-outline-secondary">Nifty next (100) bhavcopy</button>
+      <!-- </div> -->
+      <!-- <div class="row"> -->
+        <button type="button" class="btn btn-block btn-outline-secondary">Nifty 50 bulk deals</button>
+      <!-- </div> -->
+      <button type="button" class="btn btn-block btn-outline-secondary">Daily Volatility</button>
+     
+      <button type="button" class="btn btn-block btn-outline-secondary">Nifty 50 Block deals</button>
+     
+      <!-- <button type="button" class="btn btn-block btn-outline-secondary">Nifty 50 bulk deals</button>
+     
+      <button type="button" class="btn btn-block btn-outline-secondary">Nifty 50 bulk deals</button>
+      -->
+      
+    </div>
+    <br>
+
+    <div class="bg-dark text-center"> <h4 class="text-warning">Nifty Scanner</h4> </div>  
+     
+    <div class="card">
+        
+      <!-- <div class="row"> -->
+        <button type="button" class="btn btn-block btn-outline-secondary" (click)="get_n50_bc()">3 days in line open higher than previous high</button>
+      <!-- </div> -->
+
+      </div>
+
+    </div>
+  
+
+
+    <div class="col-lg-10">
+      <div class=" text-center">
+        <h3>Nifty End of Day Report </h3>
+      
+
+        <hr class="bg-success">
+        <p class="text-warning" *ngIf="!n50bc"><br><br>Click to view the report</p>
+
+        <p class="text-warning" *ngIf="n50bc">Nifty 50 Bhavcopy Report for the day</p>
+
+
+        <table class="table table-dark text-light table-condensed" *ngIf="n50bc">
+          <thead>
+            <tr class="text-warning">
+              <th scope="col">#</th>
+              <th scope="col">SYMBOL</th>
+              <th scope="col">SECURITY</th>
+              <th scope="col">PREV_CL_PR</th>
+              <th scope="col">OPEN_PRICE</th>
+              <th scope="col">HIGH_PRICE</th>
+              <th scope="col">LOW_PRICE</th>
+              <th scope="col">CLOSE_PRICE</th>
+              <th scope="col">NET_TRDVAL</th>
+              <th scope="col">NET_TRDQTY</th>
+              <th scope="col">HI_52_WK</th>
+              <th scope="col">LO_52_WK</th>
+              
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor = "let values of n50bc; let i = index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{values['SYMBOL']}}</td>
+              <td>{{values['SECURITY']}}</td>
+              <td>{{values['PREV_CL_PR']}}</td>
+              <td>{{values['OPEN_PRICE']}}</td>
+              <td>{{values['HIGH_PRICE']}}</td>
+              <td>{{values['LOW_PRICE']}}</td>
+              <td>{{values['CLOSE_PRICE']}}</td>
+              <td>{{values['NET_TRDVAL']}}</td>
+              <td>{{values['NET_TRDQTY']}}</td>
+              <td>{{values['HI_52_WK']}}</td>
+              <td>{{values['LO_52_WK']}}</td>
+            </tr>
+          
+          </tbody>
+        </table>
+
+
+
+        
+
+        <!-- <table class="table table-light" >
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">SYMBOL</th>
+      <th scope="col">SECURITY</th>
+      <th scope="col">PREV_CL_PR</th>
+      <th scope="col">OPEN_PRICE</th>
+      <th scope="col">HIGH_PRICE</th>
+      <th scope="col">LOW_PRICE</th>
+      <th scope="col">CLOSE_PRICE</th>
+      <th scope="col">NET_TRDVAL</th>
+      <th scope="col">NET_TRDQTY</th>
+      <th scope="col">HI_52_WK</th>
+      <th scope="col">LO_52_WK</th>
+    </tr>
+  </thead>
+
+ <tbody>
+ <tr *ngFor = "let values of n50bc; let i = index"> -->
+
+
+   <!-- <td> -->
+   <!-- <tr *ngFor = "let val of values; let j = index " > -->
+   <!-- {{val}} -->
+   <!-- <th>{{i}}</th> -->
+   <!-- <td>    {{ val[i][j] }}   </td> -->
+   <!-- <td>    {{ val.SECURITY}}   </td>
+   <td>    {{ val.PREV_CL_PR}}   </td>
+   <td>    {{ val.OPEN_PRICE}}   </td>
+   <td>    {{ val.HIGH_PRICE}}   </td>
+   <td>    {{ val.LOW_PRICE}}   </td>
+   <td>    {{ val.CLOSE_PRICE}}   </td>
+   <td>    {{ val.NET_TRDVAL}}   </td>
+   <td>    {{ val.NET_TRDQTY}}   </td>
+   <td>    {{ val.HI_52_WK}}   </td>
+   <td>    {{ val.LO_52_WK}}   </td>
+    -->
+  
+  <!-- </tr> -->
+<!-- </td> -->
+<!-- </tr>
+</tbody>
+</table> -->
+
+
+
+        <!-- <p>{{n50bc}}</p> -->
+        
+
+
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- <app-home></app-home> -->
+
+<!-- 
+  <div class="container-fluid">
+   
+    <div class="row">
+  
+      <nav class="col-md-2 d-md-block bg-warning sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active">
+                <i class="fas fa-user"></i>Profile 
+              </a>
+            </li>
+        
+            <li class="nav-item">
+              <a class="nav-link" (click)="authService.SignOut()">
+                <i class="fas fa-sign-out-alt"></i>Log out
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  
+   
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="inner-adjust">
+  
+          <div class="pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">My Profile</h1>
+          </div>
+        
+          <div class="row" *ngIf="authService.userData as user">
+            <div class="col-md-12">
+              <div class="media">
+                <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+                  alt="{{user.displayName}}">
+                <div class="media-body">
+                  <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+                  <p>User ID: <strong>{{user.uid}}</strong></p>
+                  <p>Email: <strong>{{user.email}}</strong></p>
+                  <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </main>
+  
+    </div>
+  </div> -->

@@ -1,0 +1,169 @@
+
+<app-header></app-header>
+
+  <div class="jumbotron-fluid" style="background-image: url(./../../assets/t1.jpeg); background-repeat: no-repeat;">
+    <div class="container text-white">
+      <br>
+
+  <h2 class="display-4">Market Data Analytics Platform for small Traders!</h2><hr><br>
+
+  <div class="input-group mb-3">
+    <input type="text" class="form-control"  [(ngModel)]="sym" placeholder="search for a NIFTY 50 EQ,FO,MCX symbols, example : TCS, CRUDEOIL-I etc." aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+      <button class="btn btn-danger" type="button" (click)="get_ric_data(sym)">search</button>
+    </div>
+  </div>
+
+
+
+  
+      
+  <h2 class=" text-warning" >InvestoForm</h2>
+  <p >The Investment Platform</p>
+  <!-- <hr class="my-4"> -->
+  <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
+  
+  <br><br><br><br>
+</div>  
+</div>
+<br><br>
+
+<div class="container" *ngIf="data1">
+
+  <div class="card border-info mb-12" style="max-width: 100rem;">
+    <div class="card-header">{{heading}} </div>
+    <div class="card-body text-warning">
+      <p class="card-title">{{market}} : {{sym}} </p>
+      <div class="row">
+        <div class="col">
+          <h3>Latest Price : {{data2[0].ltp}}</h3>
+       </div>
+       <div class="col">
+          <button class="btn btn-danger" type="button" >charts & analytics</button>
+
+      </div>
+
+
+    </div>
+    </div>
+  </div>
+
+<!-- 
+  <div>
+  <h1 color="primary">{{heading}} </h1>
+  
+ <h3>{{market}} : {{sym}} {{data2[0].ltp}}</h3> 
+ <hr>
+</div> -->
+
+ <table class="table table-light" >
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Time</th>
+      <th scope="col">Symbol</th>
+      <th scope="col">Last Price</th>
+      <th scope="col">ATP</th>
+      <th scope="col">prev close</th>
+      <th scope="col">Volume</th>
+    </tr>
+  </thead>
+
+ <tbody>
+ <tr *ngFor = "let showdata of data1.slice(0, 50); let i=index">
+   <th>{{i}}</th>
+   <td>    {{ showdata.time}}   </td>
+  <td>    {{ showdata.symbol}}   </td>
+  <td>    {{ showdata.ltp}}   </td>
+  <td>    {{ showdata.atp}}   </td>
+  <td>    {{ showdata.prev_day_close}}   </td>
+  <td>    {{ showdata.volume}}   </td>
+ 
+</tr>
+</tbody>
+
+</table>
+<a href="">view more</a>
+<hr color="primary">
+ </div>
+
+
+
+ <div class="container">
+
+  <div class="row">
+    <div class="col">
+    <h2>Analyze and Invest</h2>
+    <p>  Register and get all the paid benifits of InvestoForm</p>
+  </div>
+  
+  </div>
+  <div class="text-center">
+    <h2 class="text-info">MARKET ACTION</h2>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm">
+      <div class="card-css">
+        <div class="card-body">
+          <h4 class="card-title">Top Gainers</h4>
+          <!-- <p class="card-text">Barbeque Nation was founded in 2006 by one of our Promoters. We currently own and operate 138 outlets in India, 5 outlets in UAE, 1 outlet in Malaysia and 1 outlet in Oman. <br> -->
+            <p >{{data3[0].symbol}}</p>
+            <p class="text-success">Latest Price: {{data3[0].ltp}}</p>
+            <p>Prev Close: {{data3[0].prev_day_close}}</p>
+            <p>day high: {{data3[0].day_high}}</p>
+          
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          
+  
+        </div>
+        <!-- <img src="https://im1.dineout.co.in/images/uploads/restaurant/sharpen/5/g/q/p529-15773516745e0479fa8a082.jpg?tr=tr:n-large" class="card-img-top" alt="..."> -->
+      </div>
+      
+    </div>
+    <div class="col-sm ">
+      <div class="card-css">
+        <div class="card-body">
+          <h4 class="card-title">Top Losers</h4>
+          <p >{{data4[0].symbol}}</p>
+          <p class="text-danger">Latest Price: {{data4[0].ltp}}</p>
+          <p>Prev Close: {{data4[0].prev_day_close}}</p>
+          <p>day high: {{data4[0].day_high}}</p>
+
+          <!-- <p class="card-text crop-text-2" >Byg Brewski Brewing Company is a microbrewery and is for people who very specific about the fine and superior quality of service. A comfortable and awesome ambiance. <br> -->
+  
+            <!-- One of the leading casual dining chains in India, Barbeque Nation pioneered the concept of “over the table barbeque” live grills embedded in dining tables – allowing guests to grill their own barbecue’s right at their tables. <br> -->
+            
+            <!-- Indian cuisine is a natural part of the diet in the markets in which the Barbeque Nation Restaurants operate. We continue to offer new menu options, both vegetarian and non-vegetarian, largely based on Indian cuisine and use seasonal customer preferences to introduce new dishes. We also run popular food festivals at our Barbeque Nation Restaurants, thereby offering our customers a range of Indian and international cuisines.</p> -->
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  
+        </div>
+        <!-- <img src="https://im1.dineout.co.in/images/uploads/restaurant/sharpen/1/e/m/p16948-15370136115b9cf76bf1440.jpg?tr=tr:n-large" class="card-img-top" alt="..."> -->
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="card-css">
+        <div class="card-body">
+          <h4 class="card-title">Most Active Stocks</h4>
+          <!-- <p class="card-text">Tiger trail showcases a unique ambiance and outdoor seating all surrounded by lush greenery that makes your heart skip a beat. The delicious North Indian, Seafood, and Mughlai.<br> -->
+  
+            <!-- One of the leading casual dining chains in India, Barbeque Nation pioneered the concept of “over the table barbeque” live grills embedded in dining tables – allowing guests to grill their own barbecue’s right at their tables. <br> -->
+            
+            <!-- Indian cuisine is a natural part of the diet in the markets in which the Barbeque Nation Restaurants operate. We continue to offer new menu options, both vegetarian and non-vegetarian, largely based on Indian cuisine and use seasonal customer preferences to introduce new dishes. We also run popular food festivals at our Barbeque Nation Restaurants, thereby offering our customers a range of Indian and international cuisines.</p> -->
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  
+        </div>
+        <!-- <img src="https://im1.dineout.co.in/images/uploads/restaurant/sharpen/1/a/u/p1470-1469012483578f5a0326500.jpg?tr=tr:n-large" class="card-img-top" alt="..."> -->
+       
+      </div>
+    </div>
+  </div>
+  
+  
+
+  
+ </div>
+
+
+
