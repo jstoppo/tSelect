@@ -70,18 +70,38 @@ class QuoteResource:
 class n50bc:
     def on_get(self, req, resp):
         """Handles GET requests"""
+        dt = time.strftime('%d%m%y', time.localtime())
 
         con = mdb.connect(host, user, password, dbname)
-        qry = "select * from N110920"
+        qry = "SELECT * FROM N"+dt+" where EQ_BENCHKMARK=\"NIFTY_50\""
+        print(qry)
         val = ""
         result = mdb.query(qry,val,con)
 
         print(result)
         
+        dt1 = time.strftime('%d-%m-%Y', time.localtime())
+        resp.media = result,dt1
+
+class n50nextbc:
+    def on_get(self, req, resp):
+        """Handles GET requests"""
+        dt = time.strftime('%d%m%y', time.localtime())
+
+        con = mdb.connect(host, user, password, dbname)
+        qry = "SELECT * FROM N"+dt+" where EQ_BENCHKMARK=\"NIFTY_NEXT_50\""
+        print(qry)
+        val = ""
+        result = mdb.query(qry,val,con)
+
+        print(result)
+        dt1 = time.strftime('%d-%m-%Y', time.localtime())
+        
    
-        resp.media = result
+        resp.media = result,dt1
 
 
 
 app = falcon.API(middleware=[CORSComponent()])
 app.add_route('/n50bc', n50bc())
+app.add_route('/n50nextbc', n50nextbc())
