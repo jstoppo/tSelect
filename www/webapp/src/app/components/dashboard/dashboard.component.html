@@ -8,29 +8,44 @@
   <!-- Sidebar navigation -->
 
  
+  <!-- <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script> -->
   <app-header></app-header>  
   <br>
 <div class="container-fluid ">
   <div class="row bg-light">
     
     <div class="col-md-2 ">
-      <div class="bg-dark text-center"> <h4 class="text-warning">Dashboard</h4> <hr> </div>  
+
+          <nav aria-label="breadcrumb ">
+            <ol class="breadcrumb bg-dark">
+
+              
+              <li class="breadcrumb-item">
+                <a class="text-warning">End of Day Report</a>
+              </li>
+                     
+            </ol>
+          </nav>
+
+      <!-- <div class="bg-dark text-center"> <h4 class="text-warning">Dashboard</h4> <hr> </div>   -->
       
       <div class="card">
         
       <!-- <div class="row"> -->
-        <button type="button" class="btn btn-block btn-outline-secondary" (click)="get_n50_bc()">Nifty 50 bhavcopy</button>
+        <button type="button" class="btn btn-block btn-outline-secondary" (click)="get_n50_bc()"> 
+          
+            Nifty 50 bhavcopy</button>
       <!-- </div> -->
 
       <!-- <div class="row"> -->
-        <button type="button" class="btn btn-block btn-outline-secondary" (click)="get_n50_next_bc()">Nifty next (100) bhavcopy</button>
+        <button type="button" class="btn btn-block btn-outline-secondary" (click)="get_n50_next_bc()">Nifty next bhavcopy</button>
       <!-- </div> -->
       <!-- <div class="row"> -->
-        <button type="button" class="btn btn-block btn-outline-secondary">Nifty 50 bulk deals</button>
+        <!-- <button type="button" class="btn btn-block btn-outline-secondary">Nifty 50 bulk deals</button> -->
       <!-- </div> -->
-      <button type="button" class="btn btn-block btn-outline-secondary">Daily Volatility</button>
+      <!-- <button type="button" class="btn btn-block btn-outline-secondary">Daily Volatility</button> -->
      
-      <button type="button" class="btn btn-block btn-outline-secondary">Nifty 50 Block deals</button>
+      <!-- <button type="button" class="btn btn-block btn-outline-secondary">Nifty 50 Block deals</button> -->
      
       <!-- <button type="button" class="btn btn-block btn-outline-secondary">Nifty 50 bulk deals</button>
      
@@ -39,46 +54,82 @@
       
     </div>
     <br>
+    <nav aria-label="breadcrumb ">
+      <ol class="breadcrumb bg-dark">
+        
+        <li class="breadcrumb-item">
+          <a class="text-warning">Candlestick Scans</a>
+        </li>
+               
+      </ol>
+    </nav>
 
-    <div class="bg-dark text-center"> <h4 class="text-warning">Nifty Scanner</h4> </div>  
+    <!-- <div class="bg-dark text-center"> <h4 class="text-warning">Nifty Scanner</h4> </div>   -->
      
-    <div class="card">
+    <!-- <div class="card"> -->
+
+    
         
       <!-- <div class="row"> -->
-        <button type="button" class="btn btn-block btn-outline-secondary" (click)="get_n50_bc()">3 days in a row open higher than previous high</button>
-      <!-- </div> -->
+        <button type="button" class="btn btn-block btn-outline-secondary" (click)="get_candlestick()">3 days in a row open higher than previous high</button>
+    
+    
+        <button type="button" class="btn btn-block btn-outline-secondary" (click)="get_candlestick()">Morubozu</button>
+    
+        <!-- </div> -->
 
-      </div>
+      <!-- </div> -->
 
     </div>
   
 
 
     <div class="col-lg-10">
-      <div class=" text-center">
+      <div class="  text-center">
         <!-- <h3>Nifty End of Day Report </h3> -->
       
 
+        
+        <nav aria-label="breadcrumb ">
+          <ol class="breadcrumb bg-secondary">
+            
+            <li class="breadcrumb-item">
+              <a class="text-warning">Report</a>
+            </li>
+              
+              <li class="breadcrumb-item">
+                <a class="text-light">{{n50bc[1]}} {{n50nextbc[1]}}</a>
+              </li>
+
+              <li class="breadcrumb-item">
+              <!-- <div class="col-10 text-left "> -->
+                <a class="text-warning" *ngIf="n50bc">Nifty 50 Bhavcopy</a>
+                <a class="text-warning" *ngIf="n50nextbc">Nifty 50 Next Bhavcopy</a>
+              </li>
+
+      
+          </ol>
+        </nav>
+
+        <div class="card"style="height: 26rem;" >
        
-        <!-- <p class="text-warning" *ngIf="!n50bc  or !n50nextbc"><br><br>Click to view the report</p> -->
-        <div class="row">
-          <div class="col-2 text-left">
-            <h4 class="text-secondary">{{n50bc[1]}} {{n50nextbc[1]}}</h4>
+          <div >
+            <br><br><br><br>
+
+            <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-chevron-double-left" fill="#6c757d" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+              <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+            </svg>
+
+        
+          <p class="text-secondary">click on the report on left pane</p>
+        </div>
           
-          </div>
 
-          <div class="col-10 text-left ">
-            <h3 class="text-dark text-center" *ngIf="n50bc">Nifty 50 Bhavcopy</h3>
-            <h3 class="text-dark text-center" *ngIf="n50nextbc">Nifty 50 Next Bhavcopy</h3>
-      </div>
-     
-    </div>
-    <!-- <hr class="bg-success"> -->
+          <!-- <img src="./../../assets/post.png" height="100px" width="100px"> -->
 
-      <!-- <div class="row text-left">
-        <h4>{{n50bc[1]}} {{n50nextbc[1]}}</h4>
-      </div> -->
-
+          <!-- <div class="" style="img: url(./../../assets/cover2.png); background-repeat: no-repeat;"> -->
+            <!-- </div> -->
 
         <table class="table table-dark text-light table-condensed" *ngIf="n50bc">
           <thead>
@@ -108,7 +159,9 @@
               <td>{{values['OPEN_PRICE']}}</td>
               <td>{{values['HIGH_PRICE']}}</td>
               <td>{{values['LOW_PRICE']}}</td>
-              <td>{{values['CLOSE_PRICE']}}</td>
+              <td [ngClass] ="{'green': values['CLOSE_PRICE'] > values['OPEN_PRICE'], 'red': values['CLOSE_PRICE'] < values['OPEN_PRICE'],'unch': values['CLOSE_PRICE'] == values['OPEN_PRICE']  } ">{{values['CLOSE_PRICE']}}</td>
+              <!-- <td [ngClass] ="{'red': values['CLOSE_PRICE'] < values['OPEN_PRICE'] } ">{{values['CLOSE_PRICE']}}</td> -->
+
               <td>{{values['NET_TRDVAL']}}</td>
               <td>{{values['NET_TRDQTY']}}</td>
               <td>{{values['HI_52_WK']}}</td>
@@ -148,7 +201,8 @@
               <td>{{values['OPEN_PRICE']}}</td>
               <td>{{values['HIGH_PRICE']}}</td>
               <td>{{values['LOW_PRICE']}}</td>
-              <td>{{values['CLOSE_PRICE']}}</td>
+              <td [ngClass] ="{'green': values['CLOSE_PRICE'] > values['OPEN_PRICE'], 'red': values['CLOSE_PRICE'] < values['OPEN_PRICE'],'unch': values['CLOSE_PRICE'] == values['OPEN_PRICE']  } ">{{values['CLOSE_PRICE']}}</td>
+           
               <td>{{values['NET_TRDVAL']}}</td>
               <td>{{values['NET_TRDQTY']}}</td>
               <td>{{values['HI_52_WK']}}</td>
@@ -158,7 +212,7 @@
           </tbody>
         </table>
 
-
+      </div>
 
         
 

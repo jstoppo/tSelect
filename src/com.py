@@ -43,7 +43,7 @@ class mysqldb(object):
         print(mycursor.rowcount, "record inserted.")
 
     
-    
+    #table create 
     def createtable(self,tablestatement,con):
         mycursor = con.cursor()
         
@@ -75,7 +75,7 @@ class mysqldb(object):
                 json_data.append(dict(zip(row_headers,result)))
         return json_data
 
-
+    # to execute query select and insert
     def executeqry(self,tablestatement,val,con):
         mycursor = con.cursor()
         

@@ -6,6 +6,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { HomeComponent } from './components/home/home.component';
+import { ChartingComponent } from './components/charting/charting.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 
 import { ListComponent } from './components/list/list.component';
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent},
   { path: 'list', component: ListComponent},
   { path: 'forgot-password', component: ForgotPasswordComponent},
-  { path: 'verify-email-address', component: VerifyEmailComponent}
+  { path: 'verify-email-address', component: VerifyEmailComponent},
+  { path: 'charting', component: ChartingComponent},
 ];
 
 @NgModule({

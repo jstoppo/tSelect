@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
+import { ChartingComponent } from './components/charting/charting.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {MatTableModule} from '@angular/material/table';
     VerifyEmailComponent,
     HomeComponent,
     HeaderComponent,
-    ListComponent
+    ListComponent,
+    ChartingComponent
   ],
   imports: [
     BrowserModule,

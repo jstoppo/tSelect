@@ -14,6 +14,8 @@ import pandas as pd
 import json
 
 
+import talib as ta
+
 mdb = mysqldb()
 
 #logging.basicConfig(level=logging.INFO)
@@ -69,39 +71,75 @@ class QuoteResource:
 
 class n50bc:
     def on_get(self, req, resp):
-        """Handles GET requests"""
+
+        t = pd.Timestamp.now()
         dt = time.strftime('%d%m%y', time.localtime())
+        if(t.hour < 20):
+            dt = time.strftime('%d%m%y', time.localtime(time.time() - 86400))
+
 
         con = mdb.connect(host, user, password, dbname)
-        qry = "SELECT * FROM N"+dt+" where EQ_BENCHKMARK=\"NIFTY_50\""
+        #dt = "170920"
+        qry = "SELECT * FROM N"+dt+" where EQ_BENCHMARK=\"NIFTY_50\""
         print(qry)
         val = ""
         result = mdb.query(qry,val,con)
-
-        print(result)
-        
-        dt1 = time.strftime('%d-%m-%Y', time.localtime())
+        #print(result)     
+        dt1 = time.strftime('%d-%m-%Y', time.localtime(time.time() - 86400))
         resp.media = result,dt1
 
 class n50nextbc:
     def on_get(self, req, resp):
-        """Handles GET requests"""
+        t = pd.Timestamp.now()
         dt = time.strftime('%d%m%y', time.localtime())
+        if(t.hour < 20):
+            dt = time.strftime('%d%m%y', time.localtime(time.time() - 86400))
+
 
         con = mdb.connect(host, user, password, dbname)
-        qry = "SELECT * FROM N"+dt+" where EQ_BENCHKMARK=\"NIFTY_NEXT_50\""
+        #dt = "170920"
+        qry = "SELECT * FROM N"+dt+" where EQ_BENCHMARK=\"NIFTY_NEXT_50\""
         print(qry)
         val = ""
         result = mdb.query(qry,val,con)
-
-        print(result)
-        dt1 = time.strftime('%d-%m-%Y', time.localtime())
-        
-   
+#        print(result)
+        dt1 = time.strftime('%d-%m-%Y', time.localtime(time.time() - 86400))
         resp.media = result,dt1
+
+
+class candlestick:
+    def on_post(self, req, resp):
+        print("aa")
+        print(req)
+        print(req.query_string)
+        
+
+        # t = pd.Timestamp.now()
+        # dt = time.strftime('%d%m%y', time.localtime())
+        # if(t.hour < 20):
+        #     dt = time.strftime('%d%m%y', time.localtime(time.time() - 86400))
+
+        # con = mdb.connect(host, user, password, dbname)
+        # #dt = "170920"
+        # qry = "SELECT SYMBOL, OPEN_PRICE,HIGH_PRICE, LOW_PRICE, CLOSE_PRICE FROM N"+dt+" where EQ_BENCHMARK=\"Compulsory_R_S\""
+        # print(qry)
+        # val = ""
+        # result = mdb.query(qry,val,con)
+        # #df = pd.DataFrame(result,columns=('SYMBOL','OPEN_PRICE','HIGH_PRICE','LOW_PRICE','CLOSE_PRICE'))
+        # df = pd.DataFrame(result)
+        # df.set_index(['SYMBOL'], inplace = False) 
+        # print(df)
+
+        # #print(result)
+        # r = ta.CDLMARUBOZU(df['OPEN_PRICE'],df['HIGH_PRICE'],df['LOW_PRICE'],df['CLOSE_PRICE'])
+        # print(r[r != 0])
+        # dt1 = time.strftime('%d-%m-%Y', time.localtime(time.time() - 86400))
+        
+        resp.media = req
 
 
 
 app = falcon.API(middleware=[CORSComponent()])
 app.add_route('/n50bc', n50bc())
+app.add_route('/candlestick', candlestick())
 app.add_route('/n50nextbc', n50nextbc())

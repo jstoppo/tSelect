@@ -3,6 +3,7 @@ data
 #db
 
 src/environments
+src/setup.sh
 
 # Logs
 logs

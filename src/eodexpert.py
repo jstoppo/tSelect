@@ -16,22 +16,11 @@ host="localhost"
 user="john"
 password="password"
 dbname="tradedb"
-#con = mdb.connect(host,user,password,database)
-
-#print(con)
-
-
-
-#https://archives.nseindia.com/archives/equities/bhavcopy/pr/PR080920.zip
-
-#usage_str = "<date 100120 DDMMYY>"
-
-#curl -o bhavcopy25112019.zip https://nseindia.com/archives/equities/bhavcopy/pr/PR221119.zip
 
 def get_bhavcopy_data(dt):
     logging.info("getting data - bhavcopy")
     
-    #dt = "140920" 
+    #dt = "210920" 
     #return dt
     fl = "PR"+dt+".zip"
     fl1 = "../data/bhavcopydata/PR"+dt+".zip"
@@ -58,7 +47,10 @@ def benchmark_defn(dt):
     bench_value = "NIFTY_Next_50"
     data_insert = write_db(dt,df_n,bench_value) 
 	
-	
+    df_n = pd.read_csv(fl,error_bad_lines=False,skiprows=(164), nrows=1429)
+    bench_value = "Compulsory_R_S"
+    data_insert = write_db(dt,df_n,bench_value) 	
+
 	
 
 def write_db(dt,df,bench_value):
@@ -96,8 +88,9 @@ def main():
     #t = strftime("%y", time())
     dt = time.strftime('%d%m%y', time.localtime())
     print(dt)
-    dt = "150920"
-
+    #dt = "220920"
+    #dt = time.strftime('%d%m%y', time.localtime())
+    print("*************************"+dt+"******************************")
 
     #exit()
 
@@ -105,6 +98,7 @@ def main():
     logging.info("bhavcopy downloaded for the date - " +bc_date)
     logging.info("insert bhavcopy in db")
     benchmark_defn(bc_date)
+
 
 
 if __name__ ==  '__main__':
